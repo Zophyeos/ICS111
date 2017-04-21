@@ -58,6 +58,7 @@ public class Player {
 				setImagePosition();	//movement and animation function
 			} else { 								//continue to "jump" higher
 			y -= 7;									//by 7
+			setImagePosition();							//movement and animation function	
 			}
 			
 			break;
@@ -72,6 +73,7 @@ public class Player {
 				spriteSheet.show();						//show spriteSheet image
 			} else {								//otherwise 
 				y += 7;									//increment(land) by increments of 7
+				setImagePosition();						//movement and animation function
 			}
 		}
 	}
