@@ -35,6 +35,9 @@ public class Player {
 		zeroLand = EZ.addImage("zeroLand.png", startX, startY);	//Land picture
 		zeroLand.hide();	//hides (loaded) land picture
 		setImagePosition();	//movement and animation function
+		spriteSheet.scaleTo(1.5);
+		zeroLand.scaleTo(1.5);
+		zeroJump.scaleTo(1.5);
 	}
 	
 	void processStates() { //function for states of player
@@ -42,8 +45,7 @@ public class Player {
 		
 		case STAND:									//when in STAND, can:
 			movePlayer();							//move player left and right
-			if (EZInteraction.isKeyDown('w')) {		//jump, land
-											
+			if (EZInteraction.isKeyDown('w')) {		//jump, land						
 				playerState = JUMP;	//sets playerState to JUMP
 				jumpCounter = 0;	//sets jumpCounter to 0
 			}
@@ -54,13 +56,12 @@ public class Player {
 			zeroJump.show();						//show zeroJump image
 			spriteSheet.hide();						//hide spriteSheet image(s)
 			if (jumpCounter > JUMPHEIGHT) {			//condition for "limiting" player's jump
-				playerState = LAND;	//set playerState to LAND
-				setImagePosition();	//movement and animation function
+				playerState = LAND;	//set playerState to LAND	
 			} else { 								//continue to "jump" higher
-			y -= 7;									//by 7
-			setImagePosition();							//movement and animation function	
+			y -= 10;									//by 7
+			setImagePosition();						//movement and animation function
 			}
-			
+
 			break;
 		case LAND:									//when in LAND:
 			jumpCounter -= 7;						//decrements jumpCounter by 7 until it's <= 0
@@ -71,9 +72,10 @@ public class Player {
 				playerState = STAND;					//playerState is set to STAND
 				zeroLand.hide();						//hide zeroLand image				
 				spriteSheet.show();						//show spriteSheet image
+				setImagePosition();
 			} else {								//otherwise 
-				y += 7;									//increment(land) by increments of 7
-				setImagePosition();						//movement and animation function
+				y += 10;									//increment(land) by increments of 7
+				setImagePosition();
 			}
 		}
 	}
@@ -118,10 +120,10 @@ public class Player {
 	// Keyboard controls for moving the character.
 	public void movePlayer() {
 		if (EZInteraction.isKeyDown('a')) {	//press/hold a: move left
-			moveLeft(4);
+			moveLeft(8);
 		}
 		if (EZInteraction.isKeyDown('d')) { //press/hold d: move right
-			moveRight(4);
+			moveRight(8);
 		}
 		
 	}
