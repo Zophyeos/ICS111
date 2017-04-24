@@ -2,7 +2,7 @@ public class Player {
 	
 	EZImage spriteSheet;	//Declares EZImage called spriteSheet
 	
-	int x = 10;				// x position of Sprite
+	int x = 0;				// x position of Sprite
 	int y = 0;				// y position of Sprite
 	int spriteWidth;		// Width of each sprite
 	int spriteHeight;		// Height of each sprite
@@ -35,7 +35,7 @@ public class Player {
 		zeroLand = EZ.addImage("zeroLand.png", startX, startY);	//Land picture
 		zeroLand.hide();	//hides (loaded) land picture
 		setImagePosition();	//movement and animation function
-		spriteSheet.scaleTo(1.5);
+		spriteSheet.scaleTo(1.6);
 		zeroLand.scaleTo(1.5);
 		zeroJump.scaleTo(1.5);
 	}
@@ -89,32 +89,42 @@ public class Player {
 						+ spriteHeight);
 	}
 	
-	public void moveLeft(int stepSize) {	//function for running left
-		x = x - stepSize;					//move player left by stepSize (4)
-		direction = spriteHeight;			//which part of spriteSheet image(second row)
-
-		if ((counter % cycleSteps) == 0) {
-			walkSequence--;					//read spriteSheet from right to left focus
-			if (walkSequence < 0)			//if reach leftmost image,
-				walkSequence = 14;			//go back to rightmost image
-		}
-		counter++;							//increment counter by 1
-		setImagePosition();					//move image(s) to x, y position
-	}
-
 	public void moveRight(int stepSize) {	//function for running right
-		x = x + stepSize;					//move player right by stepSize (4)
+		//x = x + stepSize;					//move player right by stepSize (4)
 		direction = 0;						//which part of spriteSheet image(first row)
 		
 		if ((counter % cycleSteps) == 0) {	
 			walkSequence++;					//read spriteSheet from left to right
 			if (walkSequence > 14)			//if reach rightmost image,
-				walkSequence = 0;			//go back to first image
+				//walkSequence = 0;
+				walkSequence = 1;			//go back to first image
 		}
 		counter--;							//decrement counter by 1
 		setImagePosition();					//move image(s) to x, y position
 	}
+	
+	public void moveLeft(int stepSize) {	//function for running left
+		//x = x - stepSize;					//move player left by stepSize (4)
+		direction = spriteHeight;			//which part of spriteSheet image(second row)
 
+		if ((counter % cycleSteps) == 0) {
+			walkSequence--;					//read spriteSheet from right to left focus
+			if (walkSequence < 0)			//if reach leftmost image,
+				walkSequence = 13;			//go back to rightmost image
+		}
+		counter++;							//increment counter by 1
+		setImagePosition();					//move image(s) to x, y position
+	}
+
+	public void Jump(int stepSize) {
+		direction = spriteHeight * 2;
+		
+		if ((counter % cycleSteps) == 0) {
+			walkSequence++;
+			if (walkSequence++ < 14)
+				walkSequence = 0;
+		}
+	}
 
 
 	// Keyboard controls for moving the character.

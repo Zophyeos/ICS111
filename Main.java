@@ -6,7 +6,7 @@ public class Main {
 		EZ.initialize(500,500);
 	
 		EZImage backdrop = EZ.addImage("space.jpg", 256, 256);	//Background image
-		Player me = new Player("zeroRun.png", 320,320,54,80,3);	//Player image, control player
+		Player me = new Player("zeroTest3.png", 320,320,50,80,3);	//Player image, control player
 		
 		while (true)	//loop for game
 		{
