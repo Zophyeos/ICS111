@@ -89,9 +89,23 @@ public class PlatformerMain
 				// Square tiles
 				case 'P':
 					
-						Enemy.add(new Enemy1("Danny.png", 100, 370));
-					
-					Enemy.add(new Enemy1("Danny.png",i * 32, i * 32));
+						Enemy.add(new Enemy1("Danny.png", 600, 370));
+						Enemy.add(new Enemy1("Danny.png", 1600, 370));
+						Enemy.add(new Enemy1("Danny.png", 2100, 370));
+						Enemy.add(new Enemy1("Danny.png", 3000, 370));
+						Enemy.add(new Enemy1("Danny.png", 3600, 370));
+						Enemy.add(new Enemy1("Danny.png", 3800, 370));
+						Enemy.add(new Enemy1("Danny.png", 4400, 370));
+						Enemy.add(new Enemy1("Danny.png", 4600, 370));
+						Enemy.add(new Enemy1("Danny.png", 5200, 370));
+						Enemy.add(new Enemy1("Danny.png", 5700, 175));
+						Enemy.add(new Enemy1("Danny.png", 6400, 370));
+						Enemy.add(new Enemy1("Danny.png", 7000, 370));
+						Enemy.add(new Enemy1("Danny.png", 7500, 370));
+						Enemy.add(new Enemy1("Danny.png", 7700, 370));
+						
+						
+					//Enemy.add(new Enemy1("Danny.png",i * 32, i * 32));
 					//tiles.add(EZ.addImage("Danny.png", i * 32, line * 32 - 15));
 					break;
 				case 'C':
@@ -172,7 +186,7 @@ public class PlatformerMain
 		// GROUP PULL
 		root.pullToFront();
 		Zero.spriteSheet.pullToFront();
-		Zero.zeroJumpR.pullToFront();
+	    Zero.zeroJumpR.pullToFront();
 		Zero.zeroLand.pullToFront();
 		
 		// main loop
